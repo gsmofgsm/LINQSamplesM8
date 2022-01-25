@@ -15,7 +15,8 @@ namespace LINQSamples
 
             // Call a sample method
             //vm.InnerJoin();
-            vm.InnerJoinTwoFields();
+            //vm.InnerJoinTwoFields();
+            vm.GroupJoin();
 
             // Display Result Text
             Console.WriteLine(vm.ResultText);

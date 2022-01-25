@@ -193,12 +193,27 @@ namespace LINQSamples
             if (UseQuerySyntax)
             {
                 // Query syntax is simply a 'join...into'
-
+                grouped = (from prod in Products
+                           join sale in Sales
+                           on prod.ProductID equals sale.ProductID
+                           into sales
+                           select new ProductSales
+                           {
+                               Product = prod,
+                               Sales = sales
+                           });
             }
             else
             {
                 // Method syntax uses 'GroupJoin()'
-
+                grouped = Products.GroupJoin(Sales,
+                    prod => prod.ProductID,
+                    sale => sale.ProductID,
+                    (prod, sales) => new ProductSales
+                    {
+                        Product = prod,
+                        Sales = sales.ToList()
+                    });
             }
 
             // Loop through each product
