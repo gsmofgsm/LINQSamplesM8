@@ -2,22 +2,23 @@
 
 namespace LINQSamples
 {
-  class Program
-  {
-    static void Main(string[] args)
+    class Program
     {
-      // Instantiate the ViewModel
-      SamplesViewModel vm = new SamplesViewModel
-      {
-        // Use Query or Method Syntax?
-        UseQuerySyntax = true
-      };
+        static void Main(string[] args)
+        {
+            // Instantiate the ViewModel
+            SamplesViewModel vm = new SamplesViewModel
+            {
+                // Use Query or Method Syntax?
+                UseQuerySyntax = true
+            };
 
-      // Call a sample method
-      vm.InnerJoin();
+            // Call a sample method
+            //vm.InnerJoin();
+            vm.InnerJoinTwoFields();
 
-      // Display Result Text
-      Console.WriteLine(vm.ResultText);
+            // Display Result Text
+            Console.WriteLine(vm.ResultText);
+        }
     }
-  }
 }
